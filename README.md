@@ -23,6 +23,7 @@ git commit -m "Updated the website" && git push
 
 ## Libraries & frameworks to consider
 - https://ui.shadcn.com/themes
+- https://stackoverflow.com/questions/30610675/python-pandas-equivalent-in-javascript
 - https://d3js.org/d3-fetch it actually looks like d3 has better parsing tools...
 - AND https://d3js.org/d3-array/summarize!!!
 - danfo.js
