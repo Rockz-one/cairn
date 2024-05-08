@@ -14,7 +14,7 @@ npm install && npm run dev
 ```
 And when everything's ready to ship....
 ```bash
-npn run build
+npm run build
 git commit -m "Updated the website" && git push
 ```
 

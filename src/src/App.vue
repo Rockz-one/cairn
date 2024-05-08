@@ -27,14 +27,12 @@ export default{
   },
   async mounted(){
     const df = await dfd.readCSV("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv")
-    // Mobile doesn't look that great, uses plotly under the hood, cosider other graphing library
-    df.plot("plot_div").line()
+    df.plot("plot_div").line()  // Mobile doesn't look that great, uses plotly under the hood, consider other graphing library
   }
 }
 </script>
 
 <style>
-/* START KEEP THIS */
 * {
   box-sizing: border-box;
 }
@@ -45,7 +43,6 @@ html,body{
   background: white;
   overflow-x: hidden;
 }
-/* END KEEP THIS */
 
 /* Github banner https://github.com/tholman/github-corners */
 .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
