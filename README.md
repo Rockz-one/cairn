@@ -23,5 +23,6 @@ git commit -m "Updated the website" && git push
 
 ## Libraries & frameworks to consider
 - https://ui.shadcn.com/themes
+- https://d3js.org/d3-fetch it actually looks like d3 has better parsing tools...
 - danfo.js
 - chart.js
