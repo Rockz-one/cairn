@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --emptyOutDir --base=https://rockz-one.github.io/cairn/ && cp ../docs/index.html ../docs/404.html",
-    "preview": "vite preview"
+    "dev": "vite --host",
+    "build": "vite build --emptyOutDir --base=https://rockz-one.github.io/cairn/ && cp ../docs/index.html ../docs/404.html"
   },
   "dependencies": {
     "vue": "^3.4.21"
