@@ -9,6 +9,7 @@ Data sanitization, analytics, and visualization client-side web-app
 
 # Development
 ```bash
+git clone https://github.com/Rockz-one/cairn.git
 cd src
 npm install && npm run dev
 ```
