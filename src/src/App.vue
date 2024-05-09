@@ -9,9 +9,17 @@
       </a>
 
       <example :msg="msg" />
-
-      <div id="plot_div"></div>
-
+  
+      <div class="examples">
+        <h3>Examples</h3>
+        <input type="text" v-model="link" />
+        <button @click="run">RUN</button>
+        <h3>Output</h3>
+        <div id="plot_div"></div> 
+        <span style="max-width:1000px;overflow:scroll">{{ df }}</span>
+      </div>
+      
+    
   </div>
 </template>
 
@@ -22,12 +30,16 @@ export default{
   components : {example},
   data(){
     return{
-      msg :  "Site under development... come back soon"
+      link : "https://data.montgomerycountymd.gov/api/views/iv8c-428b/rows.csv?accessType=DOWNLOAD",// "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
+      msg : "Site under development... come back soon",
+      df  : ""
     }
   },
-  async mounted(){
-    const df = await dfd.readCSV("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv")
-    df.plot("plot_div").line()  // Mobile doesn't look that great, uses plotly under the hood, consider other graphing library
+  methods: {
+    async run(){
+      this.df = await dfd.readCSV(this.link)
+      this.df.plot("plot_div").line()  // Mobile doesn't look that great, uses plotly under the hood, consider other graphing library
+    }
   }
 }
 </script>
@@ -45,8 +57,15 @@ html,body{
 }
 
 /* Github banner https://github.com/tholman/github-corners */
-.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out;z-index:9999;}
 @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
 @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
 
+.examples{
+  display: grid;
+  width: 80%;
+  overflow: hidden;
+  padding: 20px;
+  z-index: -1;
+}
 </style>
