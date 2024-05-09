@@ -15,7 +15,7 @@
         <input type="text" v-model="link" />
         <button @click="run">RUN</button>
         <h3>Output</h3>
-        <div id="plot_div"></div> 
+        <div stlye="padding:5px" id="plot_div"></div> 
         <span style="max-width:1000px;overflow:scroll">{{ df }}</span>
       </div>
       
