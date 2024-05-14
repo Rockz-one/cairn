@@ -1,4 +1,5 @@
 <template>
+  <defaults :darkMode="darkMode"/>
   <div class="topbar">
 
     <div class="icon">
@@ -10,6 +11,8 @@
     </div>
 
     <example :msg="msg" />
+
+    <switchButton on="☀️" off="🌙" storageName="DarkMode" v-on:toggled="darkMode = !darkMode"/>
 
     <a href="https://github.com/Rockz-one/cairn" target="_blank" class="github-corner">
       <svg width="62px" height="62px" viewBox="0 0 250 250" style="fill:#eee; color:#151513;">
@@ -37,14 +40,17 @@
 <script>
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm"
 import example from "./components/example.vue"
+import switchButton from "./components/switchButton.vue"
+import defaults from "./components/defaults.vue"
 
 export default{
-  components : {example},
+  components : {example, defaults, switchButton},
   data(){
     return{
       link : "https://data.montgomerycountymd.gov/api/views/iv8c-428b/rows.csv?accessType=DOWNLOAD",// "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
       msg : "Site under development... come back soon",
-      df  : ""
+      df  : "",
+      darkMode : false
     }
   },
   methods: {
@@ -66,39 +72,12 @@ export default{
       }
       this.run()
       console.log(this.df)
-    }
+    },
   }
 }
 </script>
 
 <style>
-:root{
-  --bg-color      : #010508;
-  --sec-bg-color  : #0C1116;
-  --font-color    : #E6EDF3;
-  --sec-font-color: #858C96;
-  --link-color    : #4493F8;
-  --button-color  : #238635;
-  --text-box-color: #171A22;
-  --filter-button-color : #21242F;
-}
-
-* {
-  box-sizing: border-box;
-}
-#app,html, body { height: 100%; } 
-#app,html,body{
-  margin    : 0px;
-  top       : 0px;
-  overflow-x: hidden;
-
-  /* colors */
-  color      : var(--font-color);
-  background : var(--bg-color);
-  font-family: system-ui, sans-serif;
-  font-weight: normal;
-}
-
 /* Github banner https://github.com/tholman/github-corners */
 .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out;z-index:9999;}
 @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
@@ -136,7 +115,7 @@ textarea:focus, input:focus{
 .topbar{
   display: grid;
   padding-left: 10px;
-  grid-template-columns: 62px auto 62px;
+  grid-template-columns: 62px auto 100px 62px;
   align-items: center;
   align-content: center;
   height: 65px;

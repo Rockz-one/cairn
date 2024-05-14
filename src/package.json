@@ -8,7 +8,9 @@
     "build": "vite build --emptyOutDir --base=https://rockz-one.github.io/cairn/ && cp ../docs/index.html ../docs/404.html"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "@vueform/toggle": "^2.1.4",
+    "vue": "^3.4.21",
+    "vue-cookies": "^1.8.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
