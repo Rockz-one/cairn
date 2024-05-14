@@ -1,7 +1,7 @@
 <template>
-  <h1 style="text-align:center">
+  <h3 style="text-align:center">
     {{ msg }}
-  </h1>
+  </h3>
 </template>
 
 <script>
