@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-      <Toggle class="toggle-color" onLabel="☀️" offLabel="🌙" v-model="isOn" />
+      <Toggle class="toggle-color" :onLabel="on" :offLabel="off" v-model="isOn" />
     </div>
   </template>
   
@@ -15,16 +15,15 @@
     },
     data() {
       return {
-          isOn: false,
-          labels: {checked : this.on, unchecked: this.off}
+          isOn: false
       }
     },
     mounted() {
       if (this.$cookies.get(this.storageName)){
           this.isOn = JSON.parse(this.$cookies.get(this.storageName));
-          this.$emit("toggled", this.isOn);
-          this.$cookies.set(this.storageName, this.isOn)
       }
+      this.$emit("toggled", this.isOn);
+      this.$cookies.set(this.storageName, this.isOn)
     },
      watch: {
         isOn: function () {

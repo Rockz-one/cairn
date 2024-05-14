@@ -6,6 +6,6 @@ import VueCookies    from 'vue-cookies'
 const app = createApp(App)
 
 app.use(VueCookies     )
-// app.$cookies.config()
+app.$cookies.config('7d')
 
 app.mount('#app')
