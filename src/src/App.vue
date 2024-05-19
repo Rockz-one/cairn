@@ -65,6 +65,7 @@ export default{
           this.df = new_df
         }else{
           this.df = df
+          alert(`Failed to read CSV from ${this.link}`)
         }
       }catch(err){
         console.log(err)
